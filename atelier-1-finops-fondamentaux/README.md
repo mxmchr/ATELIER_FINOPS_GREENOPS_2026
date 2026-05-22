@@ -1,6 +1,6 @@
 # Atelier 1 — FinOps Fondamentaux : Visibilité et allocation des coûts
 
-> **Durée** : 6-7h • **Niveau** : M2 Informatique • **Format** : tutoriel guidé pas à pas
+> **Durée** : 3h • **Niveau** : M2 Informatique • **Format** : tutoriel guidé pas à pas
 
 ## 🎯 Objectifs d'apprentissage
 
