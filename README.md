@@ -1,8 +1,8 @@
-# Module FinOps & GreenOps — Master 2 Informatique
+# Ateliers FinOps & GreenOps
 
 ## 🎯 Objectifs pédagogiques
 
-Ce module propose **4 ateliers d'une journée** (6-7h chacun) pour comprendre et mettre en pratique les disciplines **FinOps** (gestion financière du cloud) et **GreenOps** (optimisation environnementale du numérique).
+Ce module propose **4 ateliers** pour comprendre et mettre en pratique les disciplines **FinOps** (gestion financière du cloud) et **GreenOps** (optimisation environnementale du numérique).
 
 Chaque atelier est conçu sous forme de **tutoriel guidé pas à pas**, exécutable intégralement dans **GitHub Codespaces**, sans installation locale.
 
@@ -17,10 +17,10 @@ Chaque atelier est conçu sous forme de **tutoriel guidé pas à pas**, exécuta
 
 | # | Atelier | Thème | Durée | Outils principaux |
 |---|---------|-------|-------|-------------------|
-| 1 | [FinOps Fondamentaux](./atelier-1-finops-fondamentaux/) | Visibilité et allocation des coûts cloud | 6-7h | Python, Pandas, simulateur AWS Cost Explorer |
-| 2 | [FinOps sur Kubernetes](./atelier-2-finops-kubernetes/) | Cost monitoring et rightsizing K8s | 6-7h | Kind, OpenCost, Prometheus, Grafana |
-| 3 | [GreenOps — Mesurer](./atelier-3-greenops-mesure/) | Empreinte carbone et énergétique du code | 6-7h | CodeCarbon, Scaphandre, Kepler |
-| 4 | [GreenOps — Optimiser](./atelier-4-greenops-optimisation/) | Éco-conception logicielle et infrastructure | 6-7h | Carbon-aware SDK, GitHub Actions, Python profiling |
+| 1 | [FinOps Fondamentaux](./atelier-1-finops-fondamentaux/) | Visibilité et allocation des coûts cloud | Python, Pandas, simulateur AWS Cost Explorer |
+| 2 | [FinOps sur Kubernetes](./atelier-2-finops-kubernetes/) | Cost monitoring et rightsizing K8s | Kind, OpenCost, Prometheus, Grafana |
+| 3 | [GreenOps — Mesurer](./atelier-3-greenops-mesure/) | Empreinte carbone et énergétique du code | CodeCarbon, Scaphandre, Kepler |
+| 4 | [GreenOps — Optimiser](./atelier-4-greenops-optimisation/) | Éco-conception logicielle et infrastructure | Carbon-aware SDK, GitHub Actions, Python profiling |
 
 ## 🚀 Démarrage rapide
 
@@ -37,7 +37,7 @@ Chaque atelier est conçu sous forme de **tutoriel guidé pas à pas**, exécuta
 Atelier 1 (FinOps fondamentaux)
         ↓
 Atelier 2 (FinOps Kubernetes) ──┐
-        ↓                       │ (parallélisables si plusieurs groupes)
+        ↓                       │ (parallélisables)
 Atelier 3 (GreenOps mesure) ────┘
         ↓
 Atelier 4 (GreenOps optimisation)
@@ -45,7 +45,7 @@ Atelier 4 (GreenOps optimisation)
 
 Les ateliers 2 et 3 peuvent être inversés ou menés en parallèle selon les groupes.
 
-## 📊 Évaluation suggérée
+## 📊 Évaluation
 
 | Modalité | Pondération | Description |
 |----------|-------------|-------------|
@@ -53,12 +53,3 @@ Les ateliers 2 et 3 peuvent être inversés ou menés en parallèle selon les gr
 | Mini-projet final | 30% | Optimisation FinOps **ET** GreenOps d'une application au choix |
 | Présentation orale | 10% | 10 min + 5 min de questions |
 
-## 🤝 Pour l'enseignant
-
-- Chaque atelier contient une section **« Notes pour l'enseignant »** en fin de document avec corrigés, points de vigilance et timing détaillé.
-- Les datasets sont volontairement **réalistes mais synthétiques** : pas de données sensibles à anonymiser.
-- L'usage de Codespaces évite les problèmes d'installation et garantit la reproductibilité.
-
-## 📜 Licence
-
-Ce contenu pédagogique est diffusé sous licence **CC BY-SA 4.0**.
