@@ -1,0 +1,44 @@
+# kube-prometheus-stack values — version allégée pour Codespaces
+
+prometheus:
+  prometheusSpec:
+    retention: 7d
+    resources:
+      requests:
+        cpu: 100m
+        memory: 512Mi
+      limits:
+        cpu: 1
+        memory: 2Gi
+    # Réduire les scrape pour soulager Codespaces
+    scrapeInterval: 30s
+    evaluationInterval: 30s
+
+grafana:
+  adminPassword: "prom-operator"
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      cpu: 200m
+      memory: 512Mi
+  defaultDashboardsEnabled: true
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+
+alertmanager:
+  enabled: false  # pas nécessaire pour le TP
+
+# Désactiver ce qui n'est pas utile et qui consomme
+prometheusOperator:
+  resources:
+    requests: { cpu: 50m, memory: 128Mi }
+
+nodeExporter:
+  enabled: true
+
+kubeStateMetrics:
+  enabled: true

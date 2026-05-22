@@ -1,0 +1,51 @@
+# Configuration OpenCost pour l'atelier 2
+# Utilise le custom pricing pour simuler des coûts AWS sur un cluster local.
+
+opencost:
+  prometheus:
+    internal:
+      enabled: true
+      serviceName: kps-kube-prometheus-stack-prometheus
+      namespaceName: monitoring
+      port: 9090
+
+  exporter:
+    defaultClusterId: finops-lab
+    extraEnv:
+      # Tags émis en métriques Prometheus
+      EMIT_NAMESPACE_LABELS: "true"
+      EMIT_POD_LABELS: "true"
+
+  customPricing:
+    enabled: true
+    # Prix simulant un cluster EKS eu-west-1
+    configmapName: custom-pricing-config
+    createConfigmap: true
+    provider: custom
+    costModel:
+      # USD par vCPU/heure et par GB RAM/heure
+      CPU: "0.031611"
+      RAM: "0.004237"
+      GPU: "0.95"
+      storage: "0.00005479"      # par GB-heure (équivalent gp3)
+      zoneNetworkEgress: "0.01"
+      regionNetworkEgress: "0.01"
+      internetNetworkEgress: "0.09"
+      spotCPU: "0.006554"
+      spotRAM: "0.000892"
+
+  ui:
+    enabled: true
+
+service:
+  type: ClusterIP
+  port: 9090
+
+# Pour Codespaces ressources limitées
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 1Gi

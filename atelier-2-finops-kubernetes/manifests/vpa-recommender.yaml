@@ -1,0 +1,48 @@
+# VPA en mode "Off" (recommandation uniquement, n'applique pas les changements)
+# Permet aux étudiants d'observer les recommandations sans risque.
+
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: productcatalog-vpa
+  namespace: boutique
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: productcatalog
+  updatePolicy:
+    updateMode: "Off"  # Recommendation only
+  resourcePolicy:
+    containerPolicies:
+      - containerName: productcatalog
+        minAllowed: { cpu: 50m, memory: 64Mi }
+        maxAllowed: { cpu: 2000m, memory: 2Gi }
+        controlledResources: ["cpu", "memory"]
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: shipping-vpa
+  namespace: boutique
+spec:
+  targetRef: { apiVersion: apps/v1, kind: Deployment, name: shipping }
+  updatePolicy: { updateMode: "Off" }
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: paymentservice-vpa
+  namespace: boutique
+spec:
+  targetRef: { apiVersion: apps/v1, kind: Deployment, name: paymentservice }
+  updatePolicy: { updateMode: "Off" }
+---
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: frontend-vpa
+  namespace: boutique
+spec:
+  targetRef: { apiVersion: apps/v1, kind: Deployment, name: frontend }
+  updatePolicy: { updateMode: "Off" }

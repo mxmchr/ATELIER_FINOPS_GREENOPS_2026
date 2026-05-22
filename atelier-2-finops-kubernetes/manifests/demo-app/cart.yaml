@@ -1,0 +1,17 @@
+# Cart — correctement dimensionné
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: cart, labels: { app: cart, team: payments } }
+spec:
+  replicas: 2
+  selector: { matchLabels: { app: cart } }
+  template:
+    metadata: { labels: { app: cart, team: payments, env: lab } }
+    spec:
+      containers:
+        - name: cart
+          image: ghcr.io/stefanprodan/podinfo:6.7.0
+          ports: [{ containerPort: 9898 }]
+          resources:
+            requests: { cpu: "150m", memory: "128Mi" }
+            limits:   { cpu: "400m", memory: "256Mi" }

@@ -1,0 +1,17 @@
+# Currency — pas de limits CPU (anti-pattern visible dans diagnostic)
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: currency, labels: { app: currency, team: platform } }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: currency } }
+  template:
+    metadata: { labels: { app: currency, team: platform, env: lab } }
+    spec:
+      containers:
+        - name: currency
+          image: ghcr.io/stefanprodan/podinfo:6.7.0
+          ports: [{ containerPort: 9898 }]
+          resources:
+            requests: { cpu: "50m", memory: "64Mi" }
+            # PAS DE LIMITS — anti-pattern à détecter

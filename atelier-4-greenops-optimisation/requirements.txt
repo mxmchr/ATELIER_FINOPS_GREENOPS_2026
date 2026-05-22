@@ -1,0 +1,9 @@
+codecarbon==2.5.0
+pandas==2.2.2
+polars==0.20.31
+duckdb==0.10.3
+scalene==1.5.41
+py-spy==0.3.14
+requests==2.32.3
+numpy==1.26.4
+pyarrow==16.1.0

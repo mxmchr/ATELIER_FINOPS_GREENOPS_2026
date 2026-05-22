@@ -1,0 +1,17 @@
+# PaymentService — ratio requests/limits trop large (peut être OOM-kill)
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: paymentservice, labels: { app: paymentservice, team: payments } }
+spec:
+  replicas: 2
+  selector: { matchLabels: { app: paymentservice } }
+  template:
+    metadata: { labels: { app: paymentservice, team: payments, env: lab } }
+    spec:
+      containers:
+        - name: paymentservice
+          image: ghcr.io/stefanprodan/podinfo:6.7.0
+          ports: [{ containerPort: 9898 }]
+          resources:
+            requests: { cpu: "50m", memory: "64Mi" }
+            limits:   { cpu: "2000m", memory: "2Gi" }  # ratio 40x trop large

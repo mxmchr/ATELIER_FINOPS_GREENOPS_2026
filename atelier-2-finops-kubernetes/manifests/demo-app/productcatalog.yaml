@@ -1,0 +1,32 @@
+# ╔═══════════════════════════════════════════════════════════════╗
+# ║ ProductCatalog — VOLONTAIREMENT SUR-PROVISIONNÉ              ║
+# ║ Requests trop élevés par rapport à l'usage réel.              ║
+# ║ Les étudiants doivent détecter cela via VPA.                  ║
+# ╚═══════════════════════════════════════════════════════════════╝
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productcatalog
+  labels: { app: productcatalog, team: platform }
+spec:
+  replicas: 3   # sur-dimensionné : 1 suffit
+  selector: { matchLabels: { app: productcatalog } }
+  template:
+    metadata:
+      labels: { app: productcatalog, team: platform, env: lab }
+    spec:
+      containers:
+        - name: productcatalog
+          image: ghcr.io/stefanprodan/podinfo:6.7.0
+          args: ["--port=9898"]
+          ports: [{ containerPort: 9898 }]
+          resources:
+            requests: { cpu: "1000m", memory: "1Gi" }   # bien trop
+            limits:   { cpu: "2000m", memory: "2Gi" }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: productcatalog, labels: { app: productcatalog } }
+spec:
+  selector: { app: productcatalog }
+  ports: [{ port: 80, targetPort: 9898 }]

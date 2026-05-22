@@ -1,0 +1,11 @@
+{
+  "monthly_budgets_usd": {
+    "payments":  4500,
+    "platform":  6000,
+    "data":      3500,
+    "frontend":  2000
+  },
+  "currency": "USD",
+  "fiscal_year_start": "2025-01-01",
+  "notes": "Budgets définis par l'équipe Finance fictive en début d'année. Utilisés pour le showback de l'atelier 1."
+}

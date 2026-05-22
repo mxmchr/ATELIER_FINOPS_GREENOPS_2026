@@ -1,0 +1,17 @@
+# Shipping — IDLE (existe mais inutile)
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: shipping, labels: { app: shipping, team: platform } }
+spec:
+  replicas: 2  # 2 pods qui ne reçoivent aucun trafic
+  selector: { matchLabels: { app: shipping } }
+  template:
+    metadata: { labels: { app: shipping, team: platform, env: lab } }
+    spec:
+      containers:
+        - name: shipping
+          image: ghcr.io/stefanprodan/podinfo:6.7.0
+          ports: [{ containerPort: 9898 }]
+          resources:
+            requests: { cpu: "200m", memory: "256Mi" }
+            limits:   { cpu: "500m", memory: "512Mi" }

@@ -1,0 +1,17 @@
+# EmailSender — non taggué (anti-pattern de tagging)
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: emailsender, labels: { app: emailsender } }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: emailsender } }
+  template:
+    metadata: { labels: { app: emailsender } }   # PAS de label team
+    spec:
+      containers:
+        - name: emailsender
+          image: ghcr.io/stefanprodan/podinfo:6.7.0
+          ports: [{ containerPort: 9898 }]
+          resources:
+            requests: { cpu: "100m", memory: "128Mi" }
+            limits:   { cpu: "200m", memory: "256Mi" }

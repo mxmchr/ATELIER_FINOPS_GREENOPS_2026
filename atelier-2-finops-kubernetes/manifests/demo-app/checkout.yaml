@@ -1,0 +1,17 @@
+# Checkout — correct
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: checkout, labels: { app: checkout, team: payments } }
+spec:
+  replicas: 2
+  selector: { matchLabels: { app: checkout } }
+  template:
+    metadata: { labels: { app: checkout, team: payments, env: lab } }
+    spec:
+      containers:
+        - name: checkout
+          image: ghcr.io/stefanprodan/podinfo:6.7.0
+          ports: [{ containerPort: 9898 }]
+          resources:
+            requests: { cpu: "100m", memory: "128Mi" }
+            limits:   { cpu: "300m", memory: "256Mi" }
