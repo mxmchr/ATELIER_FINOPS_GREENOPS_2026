@@ -56,7 +56,7 @@ Le framework définit **3 phases itératives** :
 
 ### ✏️ Exercice 1 — QCM de positionnement
 
-Ouvrir le fichier `partie-1-quiz.md` et y répondre. Les réponses sont à la fin de cet atelier.
+Ouvrir le fichier `partie-1-quiz.md` et y répondre.
 
 ---
 
@@ -277,8 +277,5 @@ Créer une **Pull Request** sur votre fork contenant :
 - Le dataset est volontairement « sale » (tags manquants, valeurs nulles) pour forcer une analyse rigoureuse
 - L'exercice 5 (forecast) est difficile : peut être traité en bonus
 
-### Corrigés
-
-Disponibles dans le dossier privé `_corriges/` (non distribué aux étudiants).
 
 </details>
