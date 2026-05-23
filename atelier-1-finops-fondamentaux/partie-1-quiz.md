@@ -1,6 +1,6 @@
 # Atelier 1 — Quiz de positionnement (Partie 1)
 
-> Répondez en autonomie. Corrigé en fin d'atelier (page enseignant).
+> Répondez en autonomie.
 
 ## Q1. Le FinOps est avant tout…
 
@@ -76,7 +76,7 @@
 
 ## Vos réponses
 
-Notez ici vos choix avant de regarder le corrigé :
+Notez ici vos choix :
 
 ```
 Q1: …  Q2: …  Q3: …  Q4: …  Q5: …
