@@ -25,7 +25,10 @@ ACCOUNT_LABELS = {
 @st.cache_data
 def load_data():
     df = pd.read_csv(CUR_PATH, parse_dates=["usage_date"])
+    df["account_id"] = df["account_id"].astype(str)
     df["account_name"] = df["account_id"].map(ACCOUNT_LABELS)
+    for col in [c for c in df.columns if c.startswith("tag_")]:
+        df[col] = df[col].fillna("").astype(str)
     return df
 
 
