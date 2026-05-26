@@ -13,7 +13,7 @@ Exécuter : python examples/02-algo-comparison.py
 
 import random
 import statistics
-from codecarbon import EmissionsTracker
+from codecarbon import OfflineEmissionsTracker
 
 # ─── Setup ──────────────────────────────────────────────────────────
 random.seed(42)
@@ -40,7 +40,7 @@ def measure(func, label):
     """Mesure plusieurs runs et retourne moyenne / écart-type."""
     emissions_list = []
     for run in range(N_RUNS):
-        tracker = EmissionsTracker(
+        tracker = OfflineEmissionsTracker(
             project_name=f"{label}-run{run}",
             country_iso_code=COUNTRY,
             measure_power_secs=1,
@@ -79,4 +79,4 @@ saved_kg = (year_lin_g - year_set_g) / 1000
 print(f"🌍 Pour {calls_per_day:,} appels/jour pendant 1 an :")
 print(f"   Linéaire : {year_lin_g / 1000:,.0f} kg CO2e")
 print(f"   Set      : {year_set_g / 1000:,.0f} kg CO2e")
-print(f"   Économie : {saved_kg:,.0f} kg CO2e (~{saved_kg / 150:.0f} km voiture)")
+print(f"   Économie : {saved_kg:,.0f} kg CO2e (~{saved_kg * 1000 / 150:,.0f} km voiture à 150 g/km)")

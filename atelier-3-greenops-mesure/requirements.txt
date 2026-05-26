@@ -1,3 +1,4 @@
+setuptools<81  # codecarbon 2.5 importe pkg_resources, supprimé dans setuptools 81+
 codecarbon==2.5.0
 torch==2.3.0
 torchvision==0.18.0

@@ -8,11 +8,15 @@ Exécuter : python examples/03-train-ml.py
 """
 
 import time
+from pathlib import Path
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
-from codecarbon import EmissionsTracker
+from codecarbon import OfflineEmissionsTracker
+
+Path("./outputs").mkdir(exist_ok=True)
 
 torch.manual_seed(42)
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -45,7 +49,7 @@ loss_fn = nn.CrossEntropyLoss()
 
 
 # ─── Entraînement instrumenté ───────────────────────────────────────
-tracker = EmissionsTracker(
+tracker = OfflineEmissionsTracker(
     project_name="mnist-mlp",
     country_iso_code="FRA",
     measure_power_secs=2,

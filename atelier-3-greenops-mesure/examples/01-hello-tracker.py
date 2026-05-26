@@ -5,10 +5,14 @@ Mesure les émissions d'une charge de travail simple (multiplications de matrice
 Exécuter : python examples/01-hello-tracker.py
 """
 
-import numpy as np
-from codecarbon import EmissionsTracker
+from pathlib import Path
 
-tracker = EmissionsTracker(
+import numpy as np
+from codecarbon import OfflineEmissionsTracker
+
+Path("./outputs").mkdir(exist_ok=True)
+
+tracker = OfflineEmissionsTracker(
     project_name="hello-carbon",
     country_iso_code="FRA",  # ~60 gCO2e/kWh
     measure_power_secs=1,
